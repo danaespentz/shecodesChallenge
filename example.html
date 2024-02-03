@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sex and the City</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff; 
+            color: #333;
+        }
+
+        header {
+            top: 30px;
+            background-color: #ffffff; /* White background color */
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* subtle shadow */
+        }
+
+        nav {
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ff7eb6; /* Light pink text color */
+            padding: 8px 16px;
+            margin: 0 10px;
+            display: inline-block;
+            font-weight: bold; /* Added bold font weight */
+            letter-spacing: 1px; /* Added letter-spacing for a stylish touch */
+            transition: color 0.3s ease; /* Smooth color transition */
+        }
+
+        nav a:hover {
+            color: #ff5b8b; /* Light pink text color on hover */
+        }
+
+        nav select {
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 16px; 
+            color: #ff7eb6;
+            padding: 8px 16px;
+            display: inline-block;
+            border: none;
+            appearance: none; 
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        main {
+            padding: 20px;
+            color: #555; 
+            overflow-x: hidden;
+        }
+
+        #watch-now-section {
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+            overflow: hidden; 
+        }
+
+        #show-image,
+        #video-container {
+            max-width: 100%;
+        }
+
+        #watch-now-button {
+            background-color: #ff7eb6;
+            color: #ffffff;
+            padding: 12px 24px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #button {
+            background-color: #ff7eb6; /* Pink background color */
+            color: #ffffff; /* White text color */
+            padding: 12px 24px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            border-radius: 8px;
+            transform: translate(-50%, 50%); /* Center vertically */
+        }
+
+        #watch-now-button:hover {
+            background-color: #ff5b8b; 
+        }
+
+        #show-image {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: #ffffff; 
+            padding: 10px;
+            text-align: center;
+            color: black;
+            bottom: 0;
+            width: 100%;
+            position: relative;
+            background-image: url('newyork.jpg'); 
+            background-repeat: repeat-x; 
+            background-size: contain; 
+        }
+
+        #about {
+            background-color: #ffffff;
+            padding: 20px;
+            text-align: justify;
+            font-style: italic;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+        }
+
+        .about-quote {
+            font-size: 40px;
+            font-weight: bold;
+            color: #ff7eb6;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        #actors {
+            background-color: #ffffff;
+            padding: 20px;
+            text-align: justify;
+            line-height: 1.6;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .actor-container {
+            display: flex;
+            margin-bottom: 40px;
+            align-items: center;
+        }
+
+        .actor-image {
+            max-width: 40%;
+            height: auto;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .actor-description {
+            max-width: 50%;
+            font-style: italic;
+            margin: 0 auto;
+        }
+
+        .actor-description h2 {
+            color: #ff7eb6; 
+            font-size: 55px;
+            font-family: 'Cursive', 'Brush Script MT', cursive;
+            text-align: center; 
+            margin-bottom: 10px;
+        }
+
+        .season-card {
+            color: #ff7eb6; 
+            font-family: 'Cursive', 'Brush Script MT', cursive;
+            font-size: 36px; 
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 8px;
+            display: inline-block;
+            width: 60px; 
+            transition: background-color 0.3s ease;
+        }
+
+        .season-card:hover {
+            background-color: #e0e0e0; 
+        }
+
+        #seasons {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #seasons h2 {
+            font-family: 'Cursive', 'Brush Script MT';
+            color: #ff7eb6; 
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #seasons p {
+            margin-bottom: 20px;
+            font-style: italic;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Your Logo" style="max-height: 70px;">
+    </header>
+
+    <nav>
+        <a href="#about">ABOUT</a>
+        <a href="#actors">ACTORS</a>
+        <a href="#seasons">SEASONS</a>
+    </nav>
+
+    <main>
+        <div id="watch-now-section">
+            <img id="show-image" src="sexandthecity.jpg" alt="Sex and the City Image">
+            <button id="watch-now-button" onclick="window.open('https://www.justwatch.com/uk/tv-series/sex-and-the-city/season-1')">WATCH NOW</button>
+            <div id="video-container" style="display: none;">
+                <video id="video" controls>
+                    <source src="trailer.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>     
+        </div>
+
+        <!-- About Section -->
+        <div id="about">
+            <span class="about-quote" style="text-align: left;">"</span>
+            <p>"Sex and the City" sashays onto the screen with a whirlwind of cosmopolitans, couture, and candid conversations about life and love in the heart of New York City. Follow the fabulous foursome – Carrie, Miranda, Charlotte, and Samantha – as they navigate the bustling cityscape, embracing the highs and lows of friendship, romance, and self-discovery. With a splash of humor, a sprinkle of fashion, and a dash of drama, each episode unfolds like a stylish chapter in their glamorous lives. Join this quartet of fierce females for a cocktail-infused ride through the ups and downs of love, laughter, and label-laden adventures. Cheers to the chic chaos of "Sex and the City"!</p>
+            <span class="about-quote" style="text-align: right;">"</span>
+        </div>
+
+         <!-- Actors Section -->
+         <div id="actors">
+            <!-- Samantha -->
+            <div class="actor-container">
+                <img class="actor-image" src="samantha.jpg" alt="Samantha Image">
+                <div class="actor-description">
+                    <h2>Samantha Jones</h2>
+                    <p>Samantha, the fearless vixen with a passion for love and lust. A powerhouse of confidence, she navigates love with a dose of wit, embracing pleasure without boundaries. In the city's chaos, Samantha stands tall, an emblem of liberation.</p>
+                </div>
+            </div>
+
+            <!-- Carrie -->
+            <div class="actor-container">
+                <div class="actor-description">
+                    <h2>Carrie Bradshaw</h2>
+                    <p>Carrie, the whimsical columnist, weaves tales of love and fashion through the labyrinth of New York. Her life is a runway, adorned with couture and romance. With a heart as vast as the city skyline, Carrie struts through life in Manolos, leaving a trail of stardust.</p>
+                </div>
+                <img class="actor-image" src="carrie.jpg" alt="Carrie Image">
+            </div>
+
+            <!-- Miranda -->
+            <div class="actor-container">
+                <img class="actor-image" src="miranda.jpg" alt="Miranda Image">
+                <div class="actor-description">
+                    <h2>Miranda Hobbes</h2>
+                    <p>Miranda, the sharp-witted lawyer, tackles the complexities of love and career with sardonic humor. Her analytical mind dissects relationships, balancing pragmatism and vulnerability. In the city's hustle, Miranda stands as the voice of reason, a beacon of intelligent independence.</p>
+                </div>
+            </div>
+
+            <!-- Charlotte -->
+            <div class="actor-container">
+                <div class="actor-description">
+                    <h2>Charlotte York</h2>
+                    <p>Charlotte, the quintessential romantic, seeks fairy tales in the modern chaos of Manhattan. Her heart is adorned with dreams of love, family, and traditional values. In a city of contrasts, Charlotte's pursuit of a happily-ever-after unfolds with grace, sincerity, and a touch of naivety.</p>
+                </div>
+                <img class="actor-image" src="charlotte.jpg" alt="Charlotte Image">
+            </div>
+
+            <div class="actor-container">
+                <img class="actor-image" src="cosmo.png" style="max-width: 30%;  padding: 60px;" alt="cosmopolitan Image">
+                <div class="actor-description">
+                    <h2 style="margin-bottom: 0px;">Get your Sex and the City mood on </h2>
+                    <h2 style="color: #938d90; font-size: 30px;"> with a glass of cosmopolitan </h2>
+                    <p style="color: #938d90;"> 1 1/2 oz Vodka </p>
+                    <p style="color: #938d90;"> 1 oz Cranberry Juice </p> 
+                    <p style="color: #938d90;"> 1/2 oz Triple Sec </p> 
+                    <p style="color: #938d90;"> 1/2 oz Fresh Lime Juice </p> 
+                    <p style="color: #938d90;"> Ice </p>
+                    <p onclick="window.open('https://www.youtube.com/watch?v=GkZeI8qxdWY')" style="color: #e993be;"> Step by step Recipe </p>
+                </div>
+            </div>   
+        </div>
+
+        <div id="seasons">
+            <h2>SEASONS</h2>
+            <div class="season-card" onclick="toggleSeasonDescription(1)">1</div>
+            <div class="season-card" onclick="toggleSeasonDescription(2)">2</div>
+            <div class="season-card" onclick="toggleSeasonDescription(3)">3</div>
+            <div class="season-card" onclick="toggleSeasonDescription(4)">4</div>
+            <div class="season-card" onclick="toggleSeasonDescription(5)">5</div>
+            <div class="season-card" onclick="toggleSeasonDescription(6)">6</div>
+
+            <div id="season1-description" style="display: none;">
+                <h2>Cosmopolitan Beginnings</h2>
+                <p>Join the fabulous foursome as they navigate the glittering streets of New York City, blending cosmopolitans, couture, and candid conversations about love. Carrie finds romance, Miranda juggles career and relationships, Charlotte seeks true love, and Samantha embraces her bold and unapologetic lifestyle.</p>
+            </div>
+            <div id="season2-description" style="display: none;">
+                <h2>Fashion, Friendship, and Heartaches</h2>
+                <p>The ladies continue their glamorous escapades, adorned in the finest fashion. Carrie's relationship with Mr. Big hits a snag, Miranda becomes a mother, Charlotte deals with heartbreak, and Samantha takes her passion for pleasure to new heights.</p>
+            </div>
+            <div id="season3-description" style="display: none;">
+                <h2>Career Climbs and Romantic Falls</h2>
+                <p>As their careers soar, so do the challenges of love. Carrie's writing reaches new heights, Miranda faces the highs and lows of motherhood, Charlotte finds love with Trey, and Samantha explores monogamy, leading to unexpected twists and turns.</p>
+            </div>
+            <div id="season4-description" style="display: none;">
+                <h2>Empire State of Mind</h2>
+                <p>The ladies conquer the city that never sleeps with even more ambition and style. Carrie and Aidan's relationship gets complicated, Miranda navigates single motherhood, Charlotte deals with marital struggles, and Samantha faces legal battles while redefining her sexual boundaries.</p>
+            </div>
+            <div id="season5-description" style="display: none;">
+                <h2>New York and New Beginnings</h2>
+                <p>Amidst the iconic backdrop of NYC, the ladies embrace new chapters. Carrie reunites with Mr. Big, Miranda explores dating, Charlotte faces fertility challenges, and Samantha deals with emotional conflicts. The season is a love letter to the city and the enduring bonds of friendship.</p>
+            </div>
+            <div id="season6-description" style="display: none;">
+                <h2>Closing Chapters and New Horizons</h2>
+                <p>In the final chapters, the ladies confront mature challenges. Carrie's love life takes unexpected turns, Miranda finds solace in friendship, Charlotte's fairy tale takes an unexpected twist, and Samantha embraces a new chapter, concluding the series with a toast to love, laughter, and enduring friendship.</p>
+            </div>
+        </div>      
+    </main>
+
+    <footer>
+        <div style="background-image: url('newyork.jpg'); background-repeat: repeat-x; height: 200px;"></div>
+    </footer>
+    
+    <script>
+        function toggleVisibility(elementId, isVisible) {
+            var element = document.getElementById(elementId);
+            element.style.display = isVisible ? 'block' : 'none';
+        }
+
+        function showVideo() {
+            toggleVisibility('show-image', false);
+            toggleVisibility('video-container', true);
+            toggleVisibility('watch-now-button', false);
+
+            var video = document.getElementById('video');
+            video.autoplay = true;  // Add this line to enable autoplay
+            video.load();  // Reload the video to apply autoplay
+
+
+            video.addEventListener('ended', function() {
+                toggleVisibility('show-image', true);
+                toggleVisibility('watch-now-button', true);
+                toggleVisibility('video-container', false);
+            });
+        }
+
+        setTimeout(showVideo, 3000);
+
+        function toggleSeasonDescription(seasonNumber) {
+            var description = document.getElementById(`season${seasonNumber}-description`);
+
+            if (description.style.display === 'block') {
+                description.style.display = 'none';
+            } else {
+                for (let i = 1; i <= 6; i++) {
+                    document.getElementById(`season${i}-description`).style.display = 'none';
+                }
+
+                description.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
